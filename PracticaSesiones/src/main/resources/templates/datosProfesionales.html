@@ -1,0 +1,55 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8" />
+	<title>Ejemplo de manejo de sesión con Spring Boot</title>
+	<link rel="icon" href="data:," />
+	<link rel="stylesheet" th:href="@{/css/estilos.css}" />
+	<script th:src="@{/js/funciones.js}"></script>
+</head>
+
+<body onload="javascript: muestraMensaje();">
+<div>ID: <th:block th:text="${idSesion}" /></div>
+
+<div th:replace="fragments/resultadoAccion" />
+<div th:replace="fragments/navegacion :: header"></div>
+
+	<form th:action="@{/paso/guarda-mensaje2}" method="post">
+		<fieldset>
+			<legend>Datos profesionales</legend>
+			
+				<label for="departamento">
+					<span class="n">Departamento</span>
+					<select name="departamento">
+						  <option value="Marketing">Marketing</option>
+						  <option value="Logistica">Logistica</option>
+						  <option value="General">General</option>
+					</select>
+				</label>
+				<br />
+				<br />
+				
+				<label for="salario">
+					<span class="n">Salario</span>
+					<input type="text" name="salario"/>
+				</label>
+				<br />
+				<br />
+				
+				<label for="comentarios">
+					<span class="n">Comentarios</span>
+					<textarea name="comentarios" cols="40" rows="5"></textarea>
+				</label>
+				<br />
+				<br />
+				
+			<input type="submit" value="Grabar informacion e ir al paso 3 - Datos bancarios"/>
+		</fieldset>
+		
+
+		
+	</form>
+
+
+</body>
+</html>

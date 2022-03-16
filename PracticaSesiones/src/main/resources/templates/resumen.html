@@ -1,0 +1,112 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8" />
+	<title>Ejemplo de manejo de sesión con Spring Boot</title>
+	<link rel="icon" href="data:," />
+	<link rel="stylesheet" th:href="@{/css/estilos.css}" />
+	<script th:src="@{/js/funciones.js}"></script>
+</head>
+
+<body onload="javascript: muestraMensaje();">
+<div>ID: <th:block th:text="${idSesion}" /></div>
+
+<div th:replace="fragments/resultadoAccion" />
+<div th:replace="fragments/navegacion :: header"></div>
+
+	<form th:action="@{/paso/guarda-mensaje4}" method="post">
+		<fieldset>
+			<legend>Datos personales</legend>
+				
+				<label for="nombre">
+					<span class="n">Nombre: </span>
+					<b th:text="${listaMensajes[0]}"></b>
+				</label>
+				<br />
+				
+				<label for="apellidos">
+					<span class="n">Apellidos: </span>
+					<b th:text="${listaMensajes[1]}"></b>
+				</label>
+				<br />
+				
+				<label for="fechaNacimiento">
+					<span class="n">Fecha de nacimiento: </span>
+					<b th:text="${listaMensajes[2]}"></b>
+				</label>
+				<br />
+				
+				<label for="genero">
+					<span class="n">Genero: </span>
+					<b th:text="${listaMensajes[3]}"></b>
+				</label>
+				<br />
+				
+				<label for="pareja">
+					<span class="n">Casado o Pareja de hecho: </span>
+					<b th:text="${listaMensajes[4]}"></b>
+				</label>
+				<br />
+				
+				<label for="hijos">
+					<span class="n">Hijos: </span>
+					<b th:text="${listaMensajes[5]}"></b>
+				</label>
+				<br />
+				
+				<label for="nacionalidades">
+					<span class="n">Nacionalidades: </span>
+					<b th:text="${listaMensajes[6]}"></b>
+				</label>
+				<br />
+				
+				
+		</fieldset>
+
+		<fieldset>
+			<legend>Datos profesionales</legend>
+				
+				<label for="departamento">
+					<span class="n">Departamento: </span>
+					<b th:text="${listaMensajes[7]}"></b>
+				</label>
+				<br />
+				
+				<label for="salario">
+					<span class="n">Salario: </span>
+					<b th:text="${listaMensajes[8]}"></b>
+				</label>
+				<br />
+				
+				<label for="comentarios">
+					<span class="n">Comentarios: </span>
+					<b th:text="${listaMensajes[9]}"></b>
+				</label>
+				<br />
+				
+		</fieldset>
+		
+		<fieldset>
+			<legend>Datos bancarios</legend>
+				
+				<label for="cuentaCorriente">
+					<span class="n">Cuenta corriente: </span>
+					<b th:text="${listaMensajes[10]}"></b>
+				</label>
+				<br />
+				
+		</fieldset>
+		
+
+		
+	</form>
+
+
+<div>
+	<form th:action="@{/paso/destruye-sesion}" method="post">
+		<input type="submit" value="Destruir session" />
+	</form>
+</div>
+
+</body>
+</html>

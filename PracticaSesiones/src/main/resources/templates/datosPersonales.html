@@ -1,0 +1,85 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8" />
+	<title>Ejemplo de manejo de sesión con Spring Boot</title>
+	<link rel="icon" href="data:," />
+	<link rel="stylesheet" th:href="@{/css/estilos.css}" />
+	<script th:src="@{/js/funciones.js}"></script>
+</head>
+
+<body onload="javascript: muestraMensaje();">
+<div>ID: <th:block th:text="${idSesion}" /></div>
+
+<div th:replace="fragments/resultadoAccion" />
+<div th:replace="fragments/navegacion :: header"></div>
+
+	<form th:action="@{/paso/guarda-mensaje}" method="post">
+		<fieldset>
+			<legend>Datos personales</legend>
+			
+				<label for="nombre">
+					<span class="n">Nombre</span>
+					<input type="text" name="nombre"/>
+				</label>
+				<br />
+				<br />
+				
+				<label for="apellidos">
+					<span class="n">Apellidos</span>
+					<input type="text" name="apellidos"/>
+				</label>
+				<br />
+				<br />
+				
+				<label for="fechaNacimiento">
+					<span class="n">Fecha de nacimiento</span>
+					<input type="text" name="fechaNacimiento" placeholder="dd/mm/yyyy"/>
+				</label> 
+				<br />
+				<br />
+				
+				<label for="genero">
+					<span class="n">Género</span>
+					<input type="radio" name="genero" value="Hombre"> Hombre
+					<input type="radio" name="genero" value="Mujer"> Mujer
+					<input type="radio" name="genero" value="Otro"> Otro
+				</label>
+				<br/>
+				<br />
+				
+				<label for="pareja">
+					<span class="n">Casado o Pareja de hecho</span>
+					<input type="checkbox" name="pareja" id="pareja" value="Con pareja"/>
+				</label>
+				<br/>
+				
+				<label for="hijos">
+					<span class="n">Hijos</span>
+					<input type="checkbox" name="hijos" id="hijos" value="Con hijos"/>
+				</label>
+				<br/>
+				<br />
+				
+				<label for="nacionalidades">
+					<span class="n">Nacionalidades</span>
+					<select name="nacionalidades" id="nacionalidades" multiple>
+						  <option value="Española">Española</option>
+						  <option value="Francesa">Francesa</option>
+						  <option value="Italiana">Italiana</option>
+						  <option value="Portuguesa">Portuguesa</option>
+					</select>
+				</label>
+				<br/>
+				<br />
+				
+			<input type="submit" value="Grabar informacion e ir al paso 2 - Datos profesionales"/>
+		</fieldset>
+		
+
+		
+	</form>
+
+
+</body>
+</html>

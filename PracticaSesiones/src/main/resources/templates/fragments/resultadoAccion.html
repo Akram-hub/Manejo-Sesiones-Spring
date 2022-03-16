@@ -1,0 +1,5 @@
+<div th:fragment="resultadoAccion">
+	<br />
+	<div th:replace="${resultadoAccionOK != null} ? ~{fragments/resultadoAccionOK} : ~{}" />
+	<div th:replace="${resultadoAccionNOK != null} ? ~{fragments/resultadoAccionNOK} : ~{}" />
+</div>
